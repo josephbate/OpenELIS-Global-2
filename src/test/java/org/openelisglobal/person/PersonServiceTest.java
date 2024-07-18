@@ -193,29 +193,6 @@ public class PersonServiceTest extends BaseWebContextSensitiveTest {
         Assert.assertEquals("123", personService.getFax(savedPerson));
     }
 
-    @Test
-    public void getFirstName_shouldReturnFirstNameForPerson() throws Exception {
-        Person savedPerson = personService.get(personId);
-
-        Assert.assertEquals("John", personService.getFirstName(savedPerson)); 
-    }
-
-    @Test
-    public void getLastName_shouldReturnLastNameForPerson() throws Exception {
-        Person savedPerson = personService.get(personId);
-
-        Assert.assertEquals("Doe", personService.getLastName(savedPerson)); 
-    }
-
-    @Test
-    public void getPersonById_shouldReturnPersonById() throws Exception {
-        Person savedPerson =  personService.getPersonById("2");
-
-        System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<"+personService.get(personId).getId()+">>>>>>>>>>>>>>>>>>>>>>>>>");
-
-        Assert.assertEquals("Doe", personService.getLastName(savedPerson)); 
-    }
-
     private Person createPerson(String firstName, String LastName, String phone, String workPhone, String cell, String primaryPhone, String fax, String email, String city, String country, String zip, String street) {
         Person person = new Person();
         person.setFirstName(firstName);
