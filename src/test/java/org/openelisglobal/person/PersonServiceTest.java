@@ -164,7 +164,7 @@ public class PersonServiceTest extends BaseWebContextSensitiveTest {
     @Test
     public void getPhone_shouldReturnPhoneContact(){
         Person savedPerson = personService.get(personId);
-        Assert.assertEquals("12345", personService.getPhone(savedPerson));
+        Assert.assertEquals("123-456-7890", personService.getPhone(savedPerson));
     }
 
     @Test
