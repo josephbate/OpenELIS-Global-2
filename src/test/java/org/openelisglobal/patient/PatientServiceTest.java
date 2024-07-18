@@ -38,10 +38,10 @@ public class PatientServiceTest extends BaseWebContextSensitiveTest {
         String nId = "NID45";
         String race = "Black";
         Patient pat = createPatient(firstName, lastname, dob, gender, race, nId);
-    
+
         // save patient to the DB
         patientId = patientService.insert(pat);
-        
+
     }
 
     @After
@@ -66,14 +66,15 @@ public class PatientServiceTest extends BaseWebContextSensitiveTest {
     }
 
     @Test
-    public void getNationalId_shouldReturnNationalId() throws Exception{
+    public void getNationalId_shouldReturnNationalId() throws Exception {
         Patient savedPatient = patientService.get(patientId);
 
         Assert.assertEquals("NID45", savedPatient.getNationalId());
 
     }
+
     @Test
-    public void getPatientByNationalId_shouldGetAllPatientsByNationalId(){
+    public void getPatientByNationalId_shouldGetAllPatientsByNationalId() {
         String nId = "NID45";
 
         Assert.assertEquals("John", patientService.getPatientByNationalId(nId).getPerson().getFirstName());
@@ -81,16 +82,15 @@ public class PatientServiceTest extends BaseWebContextSensitiveTest {
     }
 
     @Test
-    public void getPatientsByNationalId_shouldGetAllPatientsByNationalId(){
+    public void getPatientsByNationalId_shouldGetAllPatientsByNationalId() {
         String nId = "NID45";
 
         Assert.assertEquals(1, patientService.getPatientsByNationalId(nId).size());
 
     }
 
-
-    private Patient createPatient(String firstName, String LastName, String birthDate, String gender, String race, String nId)
-            throws ParseException {
+    private Patient createPatient(String firstName, String LastName, String birthDate, String gender, String race,
+            String nId) throws ParseException {
         Person person = new Person();
         person.setFirstName(firstName);
         person.setLastName(LastName);
@@ -109,6 +109,6 @@ public class PatientServiceTest extends BaseWebContextSensitiveTest {
         pat.setNationalId(nId);
 
         return pat;
-}
+    }
 
 }
